@@ -1,0 +1,22 @@
+* {
+    margin: 0;
+}
+header {
+    background-color: #fdfbfd;
+}
+#logo {
+    padding: 35px;
+    
+    margin: 0px auto;
+    height: 126px;
+    width: 129px;
+}
+a.logo {
+    background-image: url(logo.png);
+    text-indent: -220px;
+    overflow: hidden;
+    text-align: left;
+    height: 129px;
+    width: 126px;
+    display: block;
+}
