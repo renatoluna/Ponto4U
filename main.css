@@ -36,7 +36,7 @@ div#logo-number {
 div#logo-name {
     position: absolute;
     bottom: 42px;
-    color: #000;
+    color: rgb(97, 28, 137);
     width: 86px;
     font-size: 20px;
 }
