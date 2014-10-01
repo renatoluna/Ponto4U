@@ -6,17 +6,30 @@ header {
 }
 #logo {
     padding: 35px;
-    
+    position: relative;    
     margin: 0px auto;
     height: 126px;
     width: 129px;
 }
 a.logo {
-    background-image: url(logo.png);
-    text-indent: -220px;
-    overflow: hidden;
-    text-align: left;
-    height: 129px;
-    width: 126px;
-    display: block;
+    text-decoration: none;
+    color: #fdfbfd;
+    text-align: right;
+    font-family: helvetica;
+}
+div#logo-circle {
+    background-color: rgb(97, 28, 137);
+    height: 90px;
+    width: 90px;
+    position: absolute;
+    z-index: 0;
+    border-radius: 90px;
+}
+div#logo-number {
+    font-size: 105px;
+    z-index: 100;
+    position: absolute;
+    width: 93px;
+    height: 90px;
+    line-height: 92px;
 }
