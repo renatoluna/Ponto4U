@@ -33,3 +33,10 @@ div#logo-number {
     height: 90px;
     line-height: 92px;
 }
+div#logo-name {
+    position: absolute;
+    bottom: 42px;
+    color: #000;
+    width: 90px;
+    font-size: 20px;
+}
