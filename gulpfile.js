@@ -16,6 +16,7 @@ gulp.task('styles', function() {
     gulp.src('src/styles/*.scss')
     .pipe(sourcemaps.init())
     .pipe(sass())
+    .pipe(concat('main.css'))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist'));
 });
