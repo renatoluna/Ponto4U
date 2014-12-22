@@ -5,7 +5,7 @@ var jade = require('gulp-jade');
 var sass = require('gulp-sass');
 
 gulp.task('scripts', function() {
-  gulp.src(['src/scripts/libs/*.js', 'clock.js'])
+    gulp.src(['src/scripts/libs/*.js', 'src/scripts/clock.js'])
     .pipe(sourcemaps.init())
     .pipe(concat('pomodoro.js'))
     .pipe(sourcemaps.write())
