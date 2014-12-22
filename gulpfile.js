@@ -2,8 +2,9 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
 var jade = require('gulp-jade');
+var sass = require('gulp-sass');
 
-gulp.task('pomodoro', function() {
+gulp.task('scripts', function() {
   gulp.src(['src/scripts/libs/*.js', 'clock.js'])
     .pipe(sourcemaps.init())
     .pipe(concat('pomodoro.js'))
@@ -12,16 +13,17 @@ gulp.task('pomodoro', function() {
 });
 
 gulp.task('styles', function() {
-    gulp.src('src/styles/*.css')
-    .pipe(concat('main.css'))
+    gulp.src('src/styles/*.scss')
+    .pipe(sourcemaps.init())
+    .pipe(sass())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist'));
 });
 
 gulp.task('jade', function() {
-    gulp.src('src/templates/*.jade')
-    .pipe(gulpJade({
-        jade: jade,
-        pretty: true
-    }))
+    gulp.src('src/templates/pages/*.jade')
+    .pipe(jade())
     .pipe(gulp.dest('dist'));
 });
+
+gulp.task('default', ['scripts', 'styles', 'jade']);
