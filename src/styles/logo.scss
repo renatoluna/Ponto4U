@@ -1,0 +1,40 @@
+#logo {
+    padding: 35px;
+    position: relative;
+    margin: 0px auto;
+    height: 126px;
+    width: 129px;
+}
+
+a.logo {
+    text-decoration: none;
+    color: #fdfbfd;
+    text-align: right;
+    font-family: helvetica;
+}
+
+div {
+    &#logo-circle {
+        background-color: rgb(97, 28, 137);
+        height: 90px;
+        width: 90px;
+        position: absolute;
+        z-index: 0;
+        border-radius: 90px;
+    }
+    &#logo-number {
+        font-size: 106px;
+        z-index: 100;
+        position: absolute;
+        width: 93px;
+        height: 90px;
+        line-height: 92px;
+    }
+    &#logo-name {
+        position: absolute;
+        bottom: 42px;
+        color: rgb(97, 28, 137);
+        width: 87px;
+        font-size: 20px;
+    }
+}
