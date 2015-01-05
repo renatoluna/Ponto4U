@@ -1,6 +1,7 @@
 {
   "name": "ponto4uFe",
   "version": "0.0.1",
+  "description": "the ultimate way to manage your time in an inteligent way", 
   "licenses": [
     {
       "type": "MIT",
