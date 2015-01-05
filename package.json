@@ -1,6 +1,12 @@
 {
   "name": "ponto4uFe",
   "version": "0.0.1",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://bitbucket.org/renatoluna/ponto4u/raw/d66163fda2d1488f03427aaeed4f49fa0e6f9869/LICENSE"
+    }
+  ],
   "devDependencies": {
     "gulp": "^3.8.10",
     "gulp-concat": "^2.4.2",
