@@ -29,12 +29,23 @@ var clock = cabrito.Class.extends(function (time) {
         }
     };
 
-    this.pomodoro = function (time, div) {
-        this.clearTimers();
+    this.getEstimatedTime = function (time) {
         var d1 = this.date();
         var d2 = this.date();
         d2.setMinutes(d2.getMinutes() + time);
-        var seconds_left = (d2 - d1) / 1000;
+        return (d2 - d1) / 1000;
+    };
+
+    this.pomodoro = function (time, div) {
+        this.clearTimers();
+        var estimated = this.getEstimatedTime(time);
+        var seconds_left = estimated;
+        var message;
+        if (estimated / 60 == 25) {
+            message = 'POMODORO!';
+        } else {
+            message = 'Interval!';
+        }
         div = document.getElementById(div);
         if (div) {
             div.innerHTML = this.getTimer(seconds_left);
@@ -44,7 +55,7 @@ var clock = cabrito.Class.extends(function (time) {
             seconds_left = seconds_left - 1;
             if (seconds_left <= 0) {
                 clearInterval(int);
-                alert('POMODORO!');
+                alert(message);
                 return;
             }
             if (div) {
