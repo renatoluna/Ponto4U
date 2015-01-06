@@ -35,13 +35,14 @@ var clock = cabrito.Class.extends(function (time) {
         var int = setInterval(function () {
             status += 1;
             seconds_left = seconds_left - 1;
-            if (div) {
-                div.innerHTML = getTimer(seconds_left);
-            }
-            if (d1 >= d2) {
+            if (seconds_left <= 0) {
                 status = 0;
                 clearInterval(int);
                 alert('POMODORO!');
+                return;
+            }
+            if (div) {
+                div.innerHTML = getTimer(seconds_left);
             }
         }, 1000);
     };
