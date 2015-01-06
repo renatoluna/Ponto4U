@@ -49,5 +49,3 @@ var clock = cabrito.Class.extends(function (time) {
         return status;
     };
 });
-// var timer = clock.create();
-// timer.pomodoro(25, 'timer');
