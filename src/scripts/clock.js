@@ -1,10 +1,6 @@
 var clock = cabrito.Class.extends(function (time) {
-    var status = 0;
-    this.timeElapsed = time;
-    this.date = function () {
-        var d = new Date();
-        return d;
-    };
+
+    var timers = [];
 
     var getMinutes = function (seconds_left) {
         return parseInt(seconds_left / 60);
@@ -18,11 +14,23 @@ var clock = cabrito.Class.extends(function (time) {
         return seconds;
     };
 
+    this.date = function () {
+        var d = new Date();
+        return d;
+    };
+
     this.getTimer = function (seconds_left) {
         return getMinutes(seconds_left) + ':' + getSeconds(seconds_left);
     };
 
+    this.clearTimers = function () {
+        for (var i = 0; i < timers.length; i++) {
+            clearInterval(timers[i]);
+        }
+    };
+
     this.pomodoro = function (time, div) {
+        this.clearTimers();
         var d1 = this.date();
         var d2 = this.date();
         d2.setMinutes(d2.getMinutes() + time);
@@ -33,10 +41,8 @@ var clock = cabrito.Class.extends(function (time) {
         }
         var getTimer = this.getTimer;
         var int = setInterval(function () {
-            status += 1;
             seconds_left = seconds_left - 1;
             if (seconds_left <= 0) {
-                status = 0;
                 clearInterval(int);
                 alert('POMODORO!');
                 return;
@@ -45,8 +51,6 @@ var clock = cabrito.Class.extends(function (time) {
                 div.innerHTML = getTimer(seconds_left);
             }
         }, 1000);
-    };
-    this.status = function () {
-        return status;
+        timers.push(int);
     };
 });
