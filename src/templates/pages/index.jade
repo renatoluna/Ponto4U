@@ -5,7 +5,11 @@ block variables
 block scripts
     script(src='/pomodoro.js')
 block content
+    nav
+        ul(id="menu")
+            li
+                a(id="pomodoro-trigger") Pomodoro!
+            li
+                a(id="5-min-trigger") 5-min-interval
     section
         div(id="timer")
-        button(id="pomodoro-trigger") Pomodoro!
-        button(id="5-min-trigger") 5-min-interval
