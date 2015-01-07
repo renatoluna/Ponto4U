@@ -44,6 +44,7 @@ var clock = cabrito.Class.extends(function (time) {
         this.clearTimers();
         var estimated = this.getEstimatedTime(time);
         var seconds_left = estimated;
+        var getTimer = this.getTimer;
         var message;
         if (estimated / 60 == 25) {
             message = 'POMODORO!';
@@ -53,11 +54,12 @@ var clock = cabrito.Class.extends(function (time) {
         div = document.getElementById(div);
         if (div) {
             div.innerHTML = this.getTimer(seconds_left);
+            document.title = 'Ponto4U - ' + getTimer(seconds_left);
         }
-        var getTimer = this.getTimer;
         var int = setInterval(function () {
             seconds_left = seconds_left - 1;
             if (seconds_left < 0) {
+                document.title = document.title.replace(getTimer(seconds_left), 'Pomodoro');
                 clearInterval(int);
                 alert(message);
                 return;
@@ -65,6 +67,7 @@ var clock = cabrito.Class.extends(function (time) {
             if (div) {
                 div.innerHTML = getTimer(seconds_left);
             }
+            document.title = 'Ponto4U - ' + getTimer(seconds_left);
         }, 1000);
         timers.push(int);
     };
