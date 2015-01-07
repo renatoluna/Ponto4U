@@ -20,7 +20,11 @@ var clock = cabrito.Class.extends(function (time) {
     };
 
     this.getTimer = function (seconds_left) {
-        return getMinutes(seconds_left) + ':' + getSeconds(seconds_left);
+        var timeString = getMinutes(seconds_left) + ':' + getSeconds(seconds_left);
+        if (timeString.length < 5) {
+            timeString = '0' + timeString;
+        }
+        return timeString;
     };
 
     this.clearTimers = function () {
