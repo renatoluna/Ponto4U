@@ -53,7 +53,7 @@ var clock = cabrito.Class.extends(function (time) {
         var getTimer = this.getTimer;
         var int = setInterval(function () {
             seconds_left = seconds_left - 1;
-            if (seconds_left <= 0) {
+            if (seconds_left < 0) {
                 clearInterval(int);
                 alert(message);
                 return;
