@@ -3,11 +3,13 @@ var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
 var jade = require('gulp-jade');
 var sass = require('gulp-sass');
+var uglify = require('gulp-uglify');
 
 gulp.task('scripts', function() {
     gulp.src(['src/scripts/libs/*.js', 'src/scripts/clock.js', 'src/scripts/pomodoro-trigger.js'])
     .pipe(sourcemaps.init())
     .pipe(concat('pomodoro.js'))
+    .pipe(uglify())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist'));
 });
