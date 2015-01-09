@@ -46,4 +46,7 @@ gulp.task('tdd', function (done) {
     }, done);
 });
 
-gulp.task('default', ['scripts', 'styles', 'jade', 'tdd']);
+gulp.task('build', ['scripts', 'styles', 'jade']);
+gulp.task('dev', ['build', 'tdd']);
+gulp.task('default', ['dev']);
+gulp.task('dist', ['build', 'test']);
