@@ -1,4 +1,6 @@
 var gulp = require('gulp');
+var karma = require('karma').server;
+
 var concat = require('gulp-concat');
 var sourcemaps = require('gulp-sourcemaps');
 var jade = require('gulp-jade');
@@ -29,4 +31,19 @@ gulp.task('jade', function() {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('default', ['scripts', 'styles', 'jade']);
+gulp.task('test', function (done) {
+    karma.start({
+        configFile: __dirname + '/karma.conf.js',
+        browsers: ['Chrome', 'Firefox', 'Safari', 'PhantomJS'],
+        singleRun: true
+    }, done);
+});
+
+gulp.task('tdd', function (done) {
+    karma.start({
+        configFile: __dirname + '/karma.conf.js',
+        browsers: ['PhantomJS', 'Chrome']
+    }, done);
+});
+
+gulp.task('default', ['scripts', 'styles', 'jade', 'tdd']);
