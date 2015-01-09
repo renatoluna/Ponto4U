@@ -1,4 +1,9 @@
-describe('Clock', function () {
+describe('Pomodoro', function () {
+
+    it('Deve pegar o tempo estimado', function () {
+        var time = Math.floor(Math.random() * 100);
+        expect(clock.getEstimatedTime(time)).toEqual(time * 60);
+    });
 
     it('Deve retornar um erro quando um número for maior que 1 hora', function () {
         expect(clock.getTimer(3600)).toBe(undefined);
