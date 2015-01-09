@@ -34,7 +34,7 @@ gulp.task('jade', function() {
 gulp.task('test', function (done) {
     karma.start({
         configFile: __dirname + '/karma.conf.js',
-        browsers: ['Chrome', 'Firefox', 'Safari', 'PhantomJS'],
+        browsers: ['PhantomJS'],
         singleRun: true
     }, done);
 });
