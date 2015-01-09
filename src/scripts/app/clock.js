@@ -2,10 +2,6 @@ var clock = cabrito.Class.extends(function (time) {
 
     var timers = [];
 
-    var getMinutes = function (seconds_left) {
-        return parseInt(seconds_left / 60);
-    };
-
     var getSeconds = function (seconds_left) {
         var seconds = parseInt(seconds_left % 60);
         if (seconds <= 9) {
@@ -14,9 +10,8 @@ var clock = cabrito.Class.extends(function (time) {
         return seconds;
     };
 
-    this.date = function () {
-        var d = new Date();
-        return d;
+    var getMinutes = function (seconds_left) {
+        return parseInt(seconds_left / 60);
     };
 
     var validateTimeField = function (field) {
@@ -38,11 +33,10 @@ var clock = cabrito.Class.extends(function (time) {
         }
         return timeString;
     };
-
-    this.clearTimers = function () {
-        for (var i = 0; i < timers.length; i++) {
-            clearInterval(timers[i]);
-        }
+    
+    this.date = function () {
+        var d = new Date();
+        return d;
     };
 
     this.getEstimatedTime = function (time) {
@@ -52,8 +46,14 @@ var clock = cabrito.Class.extends(function (time) {
         return (d2 - d1) / 1000;
     };
 
+    this.clearIntervals = function () {
+        for (var i = 0; i < timers.length; i++) {
+            clearInterval(timers[i]);
+        }
+    };
+
     this.pomodoro = function (time, div) {
-        this.clearTimers();
+        this.clearIntervals();
         var estimated = this.getEstimatedTime(time);
         var seconds_left = estimated;
         var getTimer = this.getTimer;
