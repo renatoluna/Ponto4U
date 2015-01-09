@@ -4,7 +4,7 @@
   "engines": {
     "node": "0.10.x",
     "npm": "2.1.x"
-  }
+  },
   "description": "the ultimate way to manage your time in an inteligent way",
   "author": "Renato Luna renatoluna@gmail.com",
   "licenses": [
