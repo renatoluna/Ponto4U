@@ -19,8 +19,20 @@ var clock = cabrito.Class.extends(function (time) {
         return d;
     };
 
+    var validateTimeField = function (field) {
+        if (field < 60) {
+            return field;
+        }
+        return;
+    };
+
     this.getTimer = function (seconds_left) {
-        var timeString = getMinutes(seconds_left) + ':' + getSeconds(seconds_left);
+        var minutes = validateTimeField(getMinutes(seconds_left));
+        var seconds = validateTimeField(getSeconds(seconds_left));
+        if (minutes === undefined || seconds === undefined) {
+            return;
+        }
+        var timeString = minutes + ':' + seconds;
         if (timeString.length < 5) {
             timeString = '0' + timeString;
         }
