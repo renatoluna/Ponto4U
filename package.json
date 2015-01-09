@@ -1,6 +1,10 @@
 {
   "name": "ponto4uFe",
   "version": "0.0.1",
+  "engines": {
+    "node": "0.10.x",
+    "npm": "2.1.x"
+  }
   "description": "the ultimate way to manage your time in an inteligent way",
   "author": "Renato Luna renatoluna@gmail.com",
   "licenses": [
@@ -32,7 +36,7 @@
     "gulp-sass": "^1.2.4"
   },
   "scripts" : {
-    "prestart" : "rm -rf dist", 
+    "prestart" : "rm -rf dist",
     "start" : "gulp dist",
     "test" : "gulp test"
   }
