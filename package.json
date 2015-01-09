@@ -30,5 +30,10 @@
   },
   "dependencies": {
     "gulp-sass": "^1.2.4"
+  },
+  "scripts" : {
+    "prestart" : "rm -rf dist", 
+    "start" : "gulp dist",
+    "test" : "gulp test"
   }
 }
