@@ -6,7 +6,7 @@ var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 
 gulp.task('scripts', function() {
-    gulp.src(['src/scripts/libs/*.js', 'src/scripts/clock.js', 'src/scripts/pomodoro-trigger.js'])
+    gulp.src(['src/scripts/libs/*.js', 'src/scripts/app/clock.js', 'src/scripts/app/pomodoro-trigger.js'])
     .pipe(sourcemaps.init())
     .pipe(concat('pomodoro.js'))
     .pipe(uglify())
