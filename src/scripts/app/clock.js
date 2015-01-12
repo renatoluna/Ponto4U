@@ -56,6 +56,10 @@ var clock = cabrito.Class.extends(function (time) {
         }
     };
 
+    this.getPercentage = function (currentTime) {
+        return (currentTime * 100) / this.estimatedTime;
+    };
+
     this.pomodoro = function (time, div) {
         this.clearIntervals();
         this.setEstimatedTime(time);

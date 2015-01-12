@@ -19,4 +19,9 @@ describe('Pomodoro', function () {
         expect(clock.getTimer(0)).toEqual('00:00');
     });
 
+    it('Deve calcular uma porcentagem', function () {
+        clock.estimatedTime = 100;
+        expect(clock.getPercentage(6)).toBe(6);
+    });
+
 });
