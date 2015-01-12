@@ -1,6 +1,8 @@
 var clock = cabrito.Class.extends(function (time) {
 
     var timers = [];
+    var estimatedTime;
+    var percentage = 0;
 
     var getSeconds = function (seconds_left) {
         var seconds = parseInt(seconds_left % 60);
@@ -39,11 +41,16 @@ var clock = cabrito.Class.extends(function (time) {
         return d;
     };
 
+    this.updateEstimatedTime = function () {
+        estimatedTime = this.estimatedTime;
+    };
+
     this.setEstimatedTime = function (time) {
         var d1 = this.date();
         var d2 = this.date();
         d2.setMinutes(d2.getMinutes() + time);
         this.estimatedTime = (d2 - d1) / 1000;
+        this.updateEstimatedTime();
     };
 
     this.getEstimatedTime = function () {
@@ -56,8 +63,12 @@ var clock = cabrito.Class.extends(function (time) {
         }
     };
 
-    this.getPercentage = function (currentTime) {
-        return (currentTime * 100) / this.estimatedTime;
+    this.setPercentage = function (currentTime) {
+        percentage = (currentTime * 100) / estimatedTime;
+    };
+
+    this.getPercentage = function () {
+        return percentage;
     };
 
     this.pomodoro = function (time, div) {
@@ -66,6 +77,7 @@ var clock = cabrito.Class.extends(function (time) {
         var seconds_left = this.getEstimatedTime();
         var getTimer = this.getTimer;
         var message;
+        var setPercentage = this.setPercentage;
         if (seconds_left / 60 == 25) {
             message = 'POMODORO!';
         } else {
@@ -78,6 +90,7 @@ var clock = cabrito.Class.extends(function (time) {
         }
         var int = setInterval(function () {
             seconds_left = seconds_left - 1;
+            setPercentage(seconds_left);
             if (seconds_left < 0) {
                 document.title = document.title.replace(getTimer(seconds_left), 'Pomodoro');
                 clearInterval(int);
