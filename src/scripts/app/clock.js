@@ -33,17 +33,21 @@ var clock = cabrito.Class.extends(function (time) {
         }
         return timeString;
     };
-    
+
     this.date = function () {
         var d = new Date();
         return d;
     };
 
-    this.getEstimatedTime = function (time) {
+    this.setEstimatedTime = function (time) {
         var d1 = this.date();
         var d2 = this.date();
         d2.setMinutes(d2.getMinutes() + time);
-        return (d2 - d1) / 1000;
+        this.estimatedTime = (d2 - d1) / 1000;
+    };
+
+    this.getEstimatedTime = function () {
+        return this.estimatedTime;
     };
 
     this.clearIntervals = function () {
@@ -54,11 +58,11 @@ var clock = cabrito.Class.extends(function (time) {
 
     this.pomodoro = function (time, div) {
         this.clearIntervals();
-        var estimated = this.getEstimatedTime(time);
-        var seconds_left = estimated;
+        this.setEstimatedTime(time);
+        var seconds_left = this.getEstimatedTime();
         var getTimer = this.getTimer;
         var message;
-        if (estimated / 60 == 25) {
+        if (seconds_left / 60 == 25) {
             message = 'POMODORO!';
         } else {
             message = 'Interval!';
