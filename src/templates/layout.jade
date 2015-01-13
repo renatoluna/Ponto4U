@@ -1,3 +1,4 @@
+- var siteName = "Ponto4U";
 - var pageTitle;
 block variables
 doctype html
@@ -5,7 +6,13 @@ html(lang='pt-BR')
     head
         meta(charset='UTF-8')
         meta(name='viewport', content='width=device-width, user-scalable=yes')
-        title Ponto4U #{pageTitle}
+        meta(name="keywords", content="Pomodoro, produtividade, gerenciamento de tempo, stress")
+        meta(name="description", content="O Ponto4U tem como objetivo lhe ajudar a gerenciar melhor o seu tempo com técnicas modernas que lhe deixam mais produtivo e menos estressado")
+        meta(copyright="Renato Luna")
+        title #{siteName} - #{pageTitle}
+        meta(property="og:site_name", content="#{siteName}")
+        meta(property="og:title", content="#{pageTitle}")
+        meta(property="og:locale", content="pt_BR")
         link(href='main.css', rel='stylesheet', type='text/css')
         block scripts
     body
@@ -14,7 +21,7 @@ html(lang='pt-BR')
                 a.logo(href='http://ponto4u.com.br/', title='ponto4u logo')
                     #logo-circle
                         #logo-number 4
-                        #logo-name Ponto 4 u
+                        #logo-name #{siteName}
         block content
         block foot
             footer
