@@ -1,6 +1,6 @@
 ul {
     &#menu {
-        height: 42px;
+        height: 43px;
         background-color: #7A4F94;
         list-style: none;
         color: #fdfdfb;
@@ -12,6 +12,11 @@ ul {
                 padding: 12px 20px;
                 line-height: 2.7em;
                 cursor: pointer;
+                color: #fdfdfb;
+                text-decoration: none;
+            }
+            &:hover {
+                background-color: #611c89;
             }
         }
     }
