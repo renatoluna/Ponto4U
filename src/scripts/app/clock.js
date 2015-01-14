@@ -71,9 +71,18 @@ var clock = cabrito.Class.extends(function (time) {
         return percentage;
     };
 
+    this.increaseCookieValue = function () {
+        var cookie = utils.getCookie('pomodoros');
+        if (!cookie) {
+            return 1;
+        }
+        return parseInt(cookie) + 1;
+    };
+
     this.pomodoro = function (time, div) {
         this.clearIntervals();
         this.setEstimatedTime(time);
+        var increaseCookieValue = this.increaseCookieValue;
         var seconds_left = this.getEstimatedTime();
         var getTimer = this.getTimer;
         var message;
@@ -93,6 +102,7 @@ var clock = cabrito.Class.extends(function (time) {
             setPercentage(seconds_left);
             if (seconds_left < 0) {
                 document.title = document.title.replace(getTimer(seconds_left), 'Pomodoro');
+                document.cookie = 'pomodoros=' + increaseCookieValue();
                 clearInterval(int);
                 alert(message);
                 return;

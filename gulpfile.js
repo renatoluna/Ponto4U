@@ -10,6 +10,7 @@ var uglify = require('gulp-uglify');
 gulp.task('scripts', function() {
     gulp.src([
         'src/scripts/libs/*.js',
+        'src/scripts/app/utils.js',
         'src/scripts/app/clock.js',
         'src/scripts/app/pomodoro-trigger.js',
         'src/scripts/app/pomodoro-canvas.js'
