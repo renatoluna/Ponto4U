@@ -1,0 +1,11 @@
+extends ../layout.jade
+
+block variables
+    - pageTitle = "Pomodoro"
+block scripts
+    script(src='/pomodoro.js')
+block content
+    section
+        div(id="timer") 25:00
+        div(id="pomodoro-timer")
+            canvas(id="pomodoro", width="90", height="90")
