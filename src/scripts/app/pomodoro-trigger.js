@@ -1,6 +1,7 @@
 cabrito.PageLoad.elementReady('timer', function () {
 
     var timer = clock.create();
+    timer.pomodoro(25, 'timer');
 
     cabrito.PageLoad.elementReady('pomodoro-trigger', function () {
         document.getElementById('pomodoro-trigger').removeAttribute('href');
