@@ -10,13 +10,13 @@
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://bitbucket.org/renatoluna/ponto4u/raw/d66163fda2d1488f03427aaeed4f49fa0e6f9869/LICENSE"
+      "url": "https://raw.githubusercontent.com/renatoluna/Ponto4U/master/LICENSE"
     }
   ],
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://renatoluna@bitbucket.org/renatoluna/ponto4u.git"
+    "url": "https://github.com/renatoluna/Ponto4U"
   },
   "devDependencies": {
     "gulp": "^3.8.10",
