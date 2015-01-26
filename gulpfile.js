@@ -13,11 +13,12 @@ gulp.task('pomodoro', function() {
         'src/scripts/app/utils.js',
         'src/scripts/app/clock.js',
         'src/scripts/app/pomodoro-trigger.js',
+        'src/scripts/app/poc.js',
         'src/scripts/app/pomodoro-canvas.js'
     ])
     .pipe(sourcemaps.init())
     .pipe(concat('pomodoro.js'))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist'));
 });

@@ -2,4 +2,10 @@
     width: 90px;
     height: 90px;
     margin: auto;
+    position: relative;
+}
+#myCanvas {
+	position: absolute;
+	top: 0px;
+	left: 0px;
 }
