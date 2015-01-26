@@ -7,7 +7,7 @@ var jade = require('gulp-jade');
 var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 
-gulp.task('scripts', function() {
+gulp.task('pomodoro', function() {
     gulp.src([
         'src/scripts/libs/*.js',
         'src/scripts/app/utils.js',
@@ -21,6 +21,20 @@ gulp.task('scripts', function() {
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist'));
 });
+
+gulp.task('routes', function() {
+    gulp.src([
+        'src/scripts/libs/*.js',
+        'src/scripts/app/default-route.js'
+    ])
+    .pipe(sourcemaps.init())
+    .pipe(concat('routes.js'))
+    .pipe(uglify())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('scripts', ['routes', 'pomodoro']);
 
 gulp.task('styles', function() {
     gulp.src('src/styles/*.scss')
@@ -37,6 +51,15 @@ gulp.task('jade', function() {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('tdd', function (done) {
+    karma.start({
+        configFile: __dirname + '/karma.conf.js',
+        browsers: ['PhantomJS', 'Chrome']
+    }, done);
+});
+
+gulp.task('dev', ['build', 'tdd']);
+
 gulp.task('test', function (done) {
     karma.start({
         configFile: __dirname + '/karma.conf.js',
@@ -45,14 +68,8 @@ gulp.task('test', function (done) {
     }, done);
 });
 
-gulp.task('tdd', function (done) {
-    karma.start({
-        configFile: __dirname + '/karma.conf.js',
-        browsers: ['PhantomJS', 'Chrome']
-    }, done);
-});
-
 gulp.task('build', ['scripts', 'styles', 'jade']);
-gulp.task('dev', ['build', 'tdd']);
+
 gulp.task('default', ['dev']);
+
 gulp.task('dist', ['build', 'test']);
