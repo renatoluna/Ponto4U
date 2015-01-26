@@ -4,8 +4,14 @@
     margin: auto;
     position: relative;
 }
-#myCanvas {
+canvas {
 	position: absolute;
 	top: 0px;
 	left: 0px;
+	&#pomodoro {
+		z-index: 2;
+	}
+	&#myCanvas {
+		z-index: 1;
+	}
 }
