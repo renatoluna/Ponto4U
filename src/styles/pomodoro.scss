@@ -15,3 +15,25 @@ canvas {
 		z-index: 1;
 	}
 }
+
+ul#pomodoro-controls {
+    height: 43px;
+    background-color: #7A4F94;
+    list-style: none;
+    color: #fdfdfb;
+    vertical-align: middle;
+    width: 176px;
+    margin: 20px auto;
+    &li {
+        display: inline-block;
+        vertical-align: middle;
+        &a {
+            padding: 12px 10px;
+            line-height: 2.7em;
+            cursor: pointer;
+            color: #fdfdfb;
+            text-decoration: none;
+        }
+    }
+
+}
