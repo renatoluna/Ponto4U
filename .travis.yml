@@ -17,7 +17,6 @@ deploy:
     secure: Vmx0JHNi+jD7iHCGcjuC3NzCBWil+VzYifQQnrqQKzkiLJerOnzD5F2WlTpPzbyuT6oRDruLm6tPEAVXsFR11tSxiE05vNCYgzSTrvif6VBjJewLbW180kzOIso8Vjw15pVZyBoh9uIQ5FN7KQHFtb0sczh1lax9aguqcMHG/ac=
   bucket: ponto4u.testing
   skip_cleanup: true
-  local-dir: dist
   acl: public_read
   on:
     repo: renatoluna/Ponto4U
