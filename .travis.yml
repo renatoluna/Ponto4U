@@ -16,6 +16,7 @@ deploy:
   secret_access_key:
     secure: Vmx0JHNi+jD7iHCGcjuC3NzCBWil+VzYifQQnrqQKzkiLJerOnzD5F2WlTpPzbyuT6oRDruLm6tPEAVXsFR11tSxiE05vNCYgzSTrvif6VBjJewLbW180kzOIso8Vjw15pVZyBoh9uIQ5FN7KQHFtb0sczh1lax9aguqcMHG/ac=
   bucket: ponto4u.testing
+  endpoint: ponto4u.testing.s3-website-sa-east-1.amazonaws.com
   skip_cleanup: true
   acl: public_read
   on:
