@@ -9,6 +9,7 @@ notifications:
     - always|never|change
     on_failure:
     - always|never|change
+before_deploy: "echo ls"
 deploy:
   provider: s3
   access_key_id: AKIAJR3FT6B5M66QTGPQ
