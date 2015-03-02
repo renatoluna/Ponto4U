@@ -73,4 +73,4 @@ gulp.task('build', ['scripts', 'styles', 'jade']);
 
 gulp.task('default', ['dev']);
 
-gulp.task('dist', ['build', 'test']);
+gulp.task('dist', ['test', 'build']);

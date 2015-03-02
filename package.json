@@ -37,6 +37,6 @@
   "scripts" : {
     "prestart" : "rm -rf dist",
     "start" : "gulp dist",
-    "test" : "gulp test"
+    "test" : "gulp dist"
   }
 }

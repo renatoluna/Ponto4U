@@ -1,9 +1,24 @@
 language: node_js
 node_js:
-  - 0.10
+- 0.1
 notifications:
   email:
     recipients:
-      - renatoluna@gmail.com
-    on_success: [always|never|change] # default: change
-    on_failure: [always|never|change] # default: always
+    - renatoluna@gmail.com
+    on_success:
+    - always|never|change
+    on_failure:
+    - always|never|change
+deploy:
+  provider: s3
+  access_key_id: AKIAJR3FT6B5M66QTGPQ
+  secret_access_key:
+    secure: iQeHScFbvZaH2OdL8a2Iecw5bTOwCOX0mnXBoZz8Jy+DOG/de/m0NTfSroBouHbvIHZYLDpDuTxw0znALavQszgWXG9ZTG3aRFoQ0JSWEsfpvhvbPp+E7M56gNLiDhTb0K+VJJtNQjt/Jp21bhs9+ODYWkpmJtinkFjhKq5XQG8=
+  bucket: ponto4u.com.br
+  endpoint: ponto4u.com.br.s3-website-sa-east-1.amazonaws.com
+  region: sa-east-1
+  skip_cleanup: true
+  local_dir: dist
+  acl: public_read
+  on:
+    repo: renatoluna/Ponto4U
