@@ -16,6 +16,7 @@ deploy:
   secret_access_key:
     secure: iQeHScFbvZaH2OdL8a2Iecw5bTOwCOX0mnXBoZz8Jy+DOG/de/m0NTfSroBouHbvIHZYLDpDuTxw0znALavQszgWXG9ZTG3aRFoQ0JSWEsfpvhvbPp+E7M56gNLiDhTb0K+VJJtNQjt/Jp21bhs9+ODYWkpmJtinkFjhKq5XQG8=
   bucket: ponto4u.testing
+  skip_cleanup: true
   acl: public_read
   on:
     repo: renatoluna/Ponto4U
