@@ -9,7 +9,6 @@ notifications:
     - always|never|change
     on_failure:
     - always|never|change
-before_deploy: ls
 deploy:
   provider: s3
   access_key_id: AKIAJR3FT6B5M66QTGPQ
@@ -17,6 +16,7 @@ deploy:
     secure: iQeHScFbvZaH2OdL8a2Iecw5bTOwCOX0mnXBoZz8Jy+DOG/de/m0NTfSroBouHbvIHZYLDpDuTxw0znALavQszgWXG9ZTG3aRFoQ0JSWEsfpvhvbPp+E7M56gNLiDhTb0K+VJJtNQjt/Jp21bhs9+ODYWkpmJtinkFjhKq5XQG8=
   bucket: qa.ponto4u.com.br
   skip_cleanup: true
+  local_dir: dist
   acl: public_read
   on:
     repo: renatoluna/Ponto4U
