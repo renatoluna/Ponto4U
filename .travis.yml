@@ -9,15 +9,14 @@ notifications:
     - always|never|change
     on_failure:
     - always|never|change
-before_deploy: "echo ls"
+before_deploy: ls
 deploy:
   provider: s3
   access_key_id: AKIAJR3FT6B5M66QTGPQ
   secret_access_key:
-    secure: Vmx0JHNi+jD7iHCGcjuC3NzCBWil+VzYifQQnrqQKzkiLJerOnzD5F2WlTpPzbyuT6oRDruLm6tPEAVXsFR11tSxiE05vNCYgzSTrvif6VBjJewLbW180kzOIso8Vjw15pVZyBoh9uIQ5FN7KQHFtb0sczh1lax9aguqcMHG/ac=
+    secure: iQeHScFbvZaH2OdL8a2Iecw5bTOwCOX0mnXBoZz8Jy+DOG/de/m0NTfSroBouHbvIHZYLDpDuTxw0znALavQszgWXG9ZTG3aRFoQ0JSWEsfpvhvbPp+E7M56gNLiDhTb0K+VJJtNQjt/Jp21bhs9+ODYWkpmJtinkFjhKq5XQG8=
   bucket: ponto4u.testing
-  endpoint: ponto4u.testing.s3-website-sa-east-1.amazonaws.com
-  skip_cleanup: true
+  local-dir: dist
   acl: public_read
   on:
     repo: renatoluna/Ponto4U
