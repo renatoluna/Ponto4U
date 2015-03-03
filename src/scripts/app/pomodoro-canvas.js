@@ -1,27 +1,38 @@
-cabrito.PageLoad.elementReady('pomodoro', function () {
-    var canvas = document.getElementById('pomodoro');
-    var ctx = canvas.getContext('2d');
-    var raf;
+function drawPomodoro () {
 
-    var ball = {
-        x : canvas.width / 2,
-        y : canvas.height / 2,
+	var $static = this.constructor.prototype;
+
+    $static.circle = {
+        canvas : document.getElementById('pomodoro'),
         radius : 44,
-        
-        draw: function () {
-            ctx.save();
-            // ctx.rotate(Math.PI*2500);
+        x : 44,
+        y : 44,
+		amount : 0,
+        background : '#ad2323',
+        draw : function () {
+            var ctx = $static.circle.canvas.getContext("2d");
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
-            ctx.fillStyle = '#F00000';
+            ctx.clip();
+            ctx.rect(0, $static.circle.amount, this.radius * 2, this.radius * 2);
+            ctx.closePath();
+            ctx.fillStyle = this.background;
             ctx.fill();
+            if ($static.circle.amount < this.radius * 2) {
+                window.requestAnimationFrame(function () {
+					$static.circle.draw();
+                });
+            } else {
+				$static.plant.draw();
+            }
         }
-    };
+    }
 
-    var plant = {
+	$static.plant = {
+        canvas : document.getElementById('plant'),
         draw : function () {
+            var ctx = $static.plant.canvas.getContext("2d");
             ctx.save();
-            // ctx.rotate(Math.PI/2500);
             ctx.beginPath();
             ctx.fillStyle = '#526F35';
             ctx.moveTo(45, 0);
@@ -35,18 +46,8 @@ cabrito.PageLoad.elementReady('pomodoro', function () {
             ctx.closePath();
             ctx.fill();
         }
-        
+
     }
 
-    function draw() {
-        ctx.clearRect(0,0, canvas.width, canvas.height);
-        // ball.draw();
-        plant.draw();   
-        raf = window.requestAnimationFrame(draw);
-    }
-    raf = window.requestAnimationFrame(draw);
-
-    var dataURL = canvas.toDataURL();
-    document.getElementById('pomodoro').src = dataURL;
-
-});
+	return this;
+}
