@@ -97,7 +97,7 @@ var clock = cabrito.Class.extends(function (time) {
         div = document.getElementById(div);
         if (div) {
             div.innerHTML = this.getTimer(seconds_left);
-            document.title = 'Ponto4U - ' + getTimer(seconds_left);
+            document.title = getTimer(seconds_left) + ' - Ponto4U';
         }
         var int = setInterval(function () {
             seconds_left = seconds_left - 1;
@@ -113,7 +113,7 @@ var clock = cabrito.Class.extends(function (time) {
             if (div) {
                 div.innerHTML = getTimer(seconds_left);
             }
-            document.title = 'Ponto4U - ' + getTimer(seconds_left);
+            document.title = getTimer(seconds_left) + ' - Ponto4U';
         }, 1000);
         timers.push(int);
     };
