@@ -1,14 +1,6 @@
 language: node_js
 node_js:
 - 0.1
-notifications:
-  email:
-    recipients:
-    - renatoluna@gmail.com
-    on_success:
-    - always|never|change
-    on_failure:
-    - always|never|change
 deploy:
   provider: s3
   access_key_id: AKIAJR3FT6B5M66QTGPQ
