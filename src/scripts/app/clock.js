@@ -80,8 +80,10 @@ var clock = cabrito.Class.extends(function (time) {
     };
 
     this.pomodoro = function (time, div) {
+        var drawPomodoro = new window.drawPomodoro();
         this.clearIntervals();
         this.setEstimatedTime(time);
+        drawPomodoro.circle.draw();
         var increaseCookieValue = this.increaseCookieValue;
         var seconds_left = this.getEstimatedTime();
         var getTimer = this.getTimer;
@@ -100,6 +102,7 @@ var clock = cabrito.Class.extends(function (time) {
         var int = setInterval(function () {
             seconds_left = seconds_left - 1;
             setPercentage(seconds_left);
+            drawPomodoro.circle.amount = 100 - percentage;
             if (seconds_left < 0) {
                 document.title = document.title.replace(getTimer(seconds_left), 'Pomodoro');
                 document.cookie = 'pomodoros=' + increaseCookieValue();
