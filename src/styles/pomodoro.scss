@@ -9,10 +9,12 @@ canvas {
 	top: 0px;
 	left: 0px;
 	&#pomodoro {
-		z-index: 2;
+        z-index: 1;
+        top: 5px;
+        left: 5px;
 	}
-	&#myCanvas {
-		z-index: 1;
+	&#plant {
+        z-index: 2;
 	}
 }
 
@@ -24,6 +26,8 @@ ul#pomodoro-controls {
     vertical-align: middle;
     width: 176px;
     margin: 20px auto;
+    font-size: 18px;
+    line-height: 43px;
     &li {
         display: inline-block;
         vertical-align: middle;
