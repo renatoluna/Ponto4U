@@ -46,6 +46,11 @@ gulp.task('styles', function() {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('icons', function() {
+    gulp.src('src/img/*')
+    .pipe(gulp.dest('dist'));
+});
+
 gulp.task('jade', function() {
     gulp.src('src/templates/pages/*.jade')
     .pipe(jade())
@@ -69,7 +74,7 @@ gulp.task('test', function (done) {
     }, done);
 });
 
-gulp.task('build', ['scripts', 'styles', 'jade']);
+gulp.task('build', ['scripts', 'icons', 'styles', 'jade']);
 
 gulp.task('default', ['dev']);
 
