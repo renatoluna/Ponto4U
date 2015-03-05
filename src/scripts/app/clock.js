@@ -87,12 +87,10 @@ var clock = cabrito.Class.extends(function (time) {
         var increaseCookieValue = this.increaseCookieValue;
         var seconds_left = this.getEstimatedTime();
         var getTimer = this.getTimer;
-        var message;
         var setPercentage = this.setPercentage;
+        var isPomodoro = false;
         if (seconds_left / 60 == 25) {
-            message = 'POMODORO!';
-        } else {
-            message = 'Interval!';
+            isPomodoro = true;
         }
         div = document.getElementById(div);
         if (div) {
@@ -106,8 +104,15 @@ var clock = cabrito.Class.extends(function (time) {
             if (seconds_left < 0) {
                 document.title = document.title.replace(getTimer(seconds_left), 'Pomodoro');
                 document.cookie = 'pomodoros=' + increaseCookieValue();
+                drawPomodoro.circle.amount = 0;
+                if (isPomodoro) {
+                    alert('POMODORO!');
+                    clock.create().pomodoro(5, 'timer');
+                } else {
+                    alert('Interval!');
+                    clock.create().pomodoro(25, 'timer');
+                }
                 clearInterval(int);
-                alert(message);
                 return;
             }
             if (div) {
