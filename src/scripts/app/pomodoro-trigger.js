@@ -14,5 +14,8 @@ cabrito.PageLoad.elementReady('timer', function () {
         document.getElementById('5-min-trigger').addEventListener('click', function () {
             timer.pomodoro(5, 'timer');
         });
+        document.getElementById('pomodoro-interval').addEventListener('click', function () {
+            timer.pomodoro(5, 'timer');
+        });
     });
 });
