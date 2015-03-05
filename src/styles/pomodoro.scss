@@ -24,15 +24,15 @@ ul#pomodoro-controls {
     list-style: none;
     color: #fdfdfb;
     vertical-align: middle;
-    width: 176px;
+    width: 373px;
     margin: 20px auto;
     font-size: 18px;
     line-height: 43px;
-    &li {
+    li {
         display: inline-block;
         vertical-align: middle;
-        &a {
-            padding: 12px 10px;
+        a {
+            padding: 12px 20px;
             line-height: 2.7em;
             cursor: pointer;
             color: #fdfdfb;
@@ -41,6 +41,4 @@ ul#pomodoro-controls {
     }
 
 }
-#pomodoro-trigger {
-    cursor: pointer;
-}
+
