@@ -6,13 +6,17 @@ block scripts
     script(src='/pomodoro.js')
 block content
     section
-        div(id="timer") 25:00
-        div(id="pomodoro-timer")
-            canvas(id="plant", width="90", height="90")
-            canvas(id="pomodoro", width="90", height="90")
+        div(class="central-wrapper")
+            div(id="timer") 25:00
+            div(id="pomodoro-timer")
+                canvas(id="plant", width="90", height="90")
+                canvas(id="pomodoro", width="90", height="90")
     section
-      nav
-        ul(id="pomodoro-controls")
-            li
-                a(id="pomodoro-trigger") Novo pomodoro
-                a(id="pomodoro-interval") Novo intervalo
+        div(class="central-wrapper")
+            div(id="time-elapsed", class="stats")
+            div(id="count" class="stats")
+          nav
+            ul(id="pomodoro-controls")
+                li
+                    a(id="pomodoro-trigger") Novo pomodoro
+                    a(id="pomodoro-interval") Novo intervalo
