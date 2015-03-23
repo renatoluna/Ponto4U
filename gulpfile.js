@@ -12,8 +12,9 @@ gulp.task('pomodoro', function() {
         'src/scripts/libs/*.js',
         'src/scripts/app/utils.js',
         'src/scripts/app/clock.js',
+        'src/scripts/app/count.js',
         'src/scripts/app/pomodoro-trigger.js',
-        'src/scripts/app/poc.js',
+        'src/scripts/app/animation.js',
         'src/scripts/app/pomodoro-canvas.js'
     ])
     .pipe(sourcemaps.init())
