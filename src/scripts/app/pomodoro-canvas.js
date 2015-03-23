@@ -10,6 +10,9 @@ function drawPomodoro () {
 		amount : 0,
         background : '#ad2323',
         draw : function () {
+			if (!$static.circle.canvas) {
+				return;
+			}
             var ctx = $static.circle.canvas.getContext("2d");
             ctx.beginPath();
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2, true);
@@ -31,6 +34,9 @@ function drawPomodoro () {
 	$static.plant = {
         canvas : document.getElementById('plant'),
         draw : function () {
+			if (!$static.plant.canvas) {
+				return;
+			}
             var ctx = $static.plant.canvas.getContext("2d");
             ctx.save();
             ctx.beginPath();
