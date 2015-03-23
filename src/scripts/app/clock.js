@@ -79,7 +79,7 @@ var clock = cabrito.Class.extends(function (time) {
         return parseInt(cookie) + 1;
     };
 
-    this.pomodoro = function (time, div) {
+    this.pomodoro = function (time, divId) {
         var drawPomodoro = new window.drawPomodoro();
         this.clearIntervals();
         this.setEstimatedTime(time);
@@ -92,7 +92,7 @@ var clock = cabrito.Class.extends(function (time) {
         if (seconds_left / 60 == 25) {
             isPomodoro = true;
         }
-        div = document.getElementById(div);
+        div = document.getElementById(divId);
         if (div) {
             div.innerHTML = this.getTimer(seconds_left);
             document.title = getTimer(seconds_left) + ' - Ponto4U';
@@ -107,10 +107,10 @@ var clock = cabrito.Class.extends(function (time) {
                 drawPomodoro.circle.amount = 0;
                 if (isPomodoro) {
                     alert('POMODORO!');
-                    clock.create().pomodoro(5, 'timer');
+                    clock.create().pomodoro(5, divId);
                 } else {
                     alert('Interval!');
-                    clock.create().pomodoro(25, 'timer');
+                    clock.create().pomodoro(25, divId);
                 }
                 clearInterval(int);
                 return;
