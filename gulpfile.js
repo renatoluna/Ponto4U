@@ -19,10 +19,12 @@ gulp.task('pomodoro', function() {
     ])
     .pipe(sourcemaps.init())
     .pipe(concat('pomodoro.js'))
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist'));
 });
+
+gulp.task('scripts', ['pomodoro']);
 
 gulp.task('styles', function() {
     gulp.src('src/styles/*.scss')
