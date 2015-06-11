@@ -24,20 +24,6 @@ gulp.task('pomodoro', function() {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('routes', function() {
-    gulp.src([
-        'src/scripts/libs/*.js',
-        'src/scripts/app/default-route.js'
-    ])
-    .pipe(sourcemaps.init())
-    .pipe(concat('routes.js'))
-    .pipe(uglify())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('dist'));
-});
-
-gulp.task('scripts', ['routes', 'pomodoro']);
-
 gulp.task('styles', function() {
     gulp.src('src/styles/*.scss')
     .pipe(sourcemaps.init())
